@@ -1,0 +1,618 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'BIZ UDP Gothic', 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p,
+li {
+    font-family: 'BIZ UDP Gothic', sans-serif;
+}
+
+
+
+/* PCレイアウト土台：左固定、右スクロール */
+.container-pc {
+    display: flex;
+    padding-top: 70px;
+    /* ナビバーの高さに応じて調整 */
+    width: 100%;
+}
+
+/* CDNボタンレスポンシブ */
+/* 共通配置 */
+.cdn-button-wrapper {
+ width: 80%;
+  position: absolute;
+  z-index: 10;
+  left: 10px;
+}
+
+/* 個別の位置調整 */
+.cdn-btn-bottom {
+  bottom: 40px;
+}
+
+.cdn-btn-top {
+  bottom: 120px;
+}
+
+/* 共通のCDNボタン画像サイズ（PC） */
+.cdn-button-img {
+  width: 200px;   /* ← ここで小さくする */
+  height: auto;
+}
+
+/* スマホ用のさらに小さいサイズ */
+@media (max-width: 768px) {
+  .cdn-button-img {
+    width:200px;
+  }
+}
+
+
+/* スマホ対応（必要に応じて調整） */
+@media (max-width: 768px) {
+  .cdn-button-wrapper {
+    left: 7px;
+  }
+
+  .cdn-btn-bottom {
+    bottom: 70px;
+  }
+
+  .cdn-btn-top {
+    bottom: 1px;
+  }
+
+  .cdn-button-img {
+    width: 150px;
+  }
+}
+
+
+/* 左側カルーセル（固定） */
+.left-fixed {
+    width: 50%;
+    /* 左半分を固定 */
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+/* 右側スクロールエリア（残りの部分を占める） */
+.right-scroll {
+    margin-left: 50%;
+    /* 右側の余白を減らすために 50% -> 0に変更 */
+    width: 50%;
+    /* 幅を50%に設定して、スクロールエリアを広げる */
+    height: 100vh;
+    overflow-y: auto;
+    /* スクロール可能 */
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    padding: 0;
+    /* 不要なパディングがないか確認 */
+    z-index: 2;
+    position: relative;
+}
+
+
+/* 2つ目カルーセルの画像 */
+/* 1枚分のスライドを小さくしすぎない */
+.card-block {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* 親に合わせて伸ばす */
+}
+
+.card-block img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.text-box {
+    width: 100%;
+    background-color: #C22525;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-radius: 0 0 8px 8px;
+    margin-top: auto;
+    /* 下部に押し下げて揃える */
+}
+
+.text-box h5 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.text-box p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.text-box .btn {
+    width: 100%;
+}
+
+/* 横スクロールを防止 */
+.swiper {
+    overflow-x: hidden;
+}
+
+/* 親要素にもオーバーフロー対策を入れる */
+.swiper-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+.bg-btn01 {
+    background-color: #77F644;
+}
+
+.bg-btn02 {
+    background-color: #8B93FF;
+}
+
+.bg-btn03 {
+    background-color: #B59315;
+}
+
+
+/* カルーセル */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #000;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swiper-pagination {
+    bottom: 10px !important;
+    z-index: 10;
+}
+
+/* スマホ・タブレット表示 */
+@media (max-width: 767.98px) {
+    .container-pc {
+        display: block;
+        height: auto;
+    }
+
+    .left-fixed {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .right-scroll {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        position: relative;
+    }
+}
+
+
+/* -----------ヒーローセクション----------- */
+
+/* モバイルページのスタイル */
+.mobile-page {
+    /* max-width: 375px; */
+    margin: 4rem;
+    padding: 0;
+}
+
+/* .mobile-page img {
+    width: 100%;
+    max-width: 800px;
+    /* 任意の幅 */
+/* height: auto;
+    display: block;
+    margin: 0 auto; */
+/* 中央寄せ */
+/* }  */
+
+#hero .hero-img00 {
+    width: 70%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#hero .hero-img01 {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+#hero .hero-img02 {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+
+/* 段落の間隔を広く */
+.mobile-page p {
+    letter-spacing: 0.1em;
+    line-height: 2.0;
+}
+
+
+.slider {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.slider img {
+    width: 100%;
+    display: block;
+}
+
+.slider .slick-slide {
+    margin: 0 10px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* --------------スクールセクション-------------- */
+#school .swiper {
+    width: 100%;
+    padding: 40px 0;
+    transform: scale(0.9);
+    /* 全体を90%に縮小 */
+    transition: transform 0.3s ease;
+}
+
+#school .swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+#school .card-block {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+#school .card-block img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+#school .text-box {
+    background-color: #C22525;
+    color: #fff;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+#school.btn {
+    width: 100%;
+}
+
+/* スクール紹介テキストの行間と余白調整 */
+#school .school-content {
+    line-height: 2;
+    /* 行と行の高さを広げる（通常は1.5） */
+    font-size: 1rem;
+    /* 必要に応じて文字サイズも調整 */
+}
+
+/* リスト項目の上下に余白を追加 */
+#school .school-content ul li {
+    margin-bottom: 10px;
+    /* 各リスト項目の下にスペース */
+}
+
+#school .school-content {
+    max-width: 500px;
+
+}
+
+#school .school-content ul li {
+    margin-bottom: 10px;
+}
+
+
+
+/* ---------------コーチセクション --------------*/
+/* coachセクションのカルーセル全体にサイズ制限 */
+#coach .swiper {
+    max-width: 100%;
+    max-height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* スライドの中央寄せ＆画像縮小を確実に */
+#coach .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 画像自体のサイズ制御（最大幅・高さ） */
+#coach .swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    /* ←ここが重要 */
+    object-fit: contain;
+}
+
+/* テキストの行間と余白調整 */
+#coach .coach-content {
+    max-width: 500px;
+    line-height: 2;
+    font-size: 1rem;
+    margin: 0;
+    /* 余白リセット */
+    padding: 0;
+    /* 必要に応じて調整 */
+}
+
+/* テキスト共通クラス */
+#coach .content-text,
+#school .content-text,
+#schedule .content-text {
+    max-width: 500px;
+    line-height: 2;
+    font-size: 1rem;
+}
+
+
+/* スケジュールセクション */
+#schedule .container {
+    text-align: center;
+    /* ← すべての子要素のテキストを中央揃えに */
+}
+
+#schedule .content-text {
+    margin: 0 auto;
+    /* 中央寄せ */
+    text-align: center;
+    /* テキスト中央揃え */
+    max-width: 600px;
+    /* 必要に応じて横幅制限 */
+    padding: 1rem;
+}
+
+#schedule .suke-img00 img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-top: 2rem;
+}
+
+/* エントリーセクション */
+.entry-img {
+    width: 70%;
+    max-width: 500px;
+    /* 必要であれば最大幅も指定 */
+    height: auto;
+    margin: 0.5rem;
+    /* 画像間に余白 */
+}
+
+.bg-btn04 {
+    background-color: #7ff761;
+    /* 任意の色 */
+    color: hsl(140, 90%, 12%);
+    padding: 0.75rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+}
+
+/* マップ */
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    /* 高さは任意。500px や 50vh にもできます */
+    display: block;
+}
+
+/* mapフォントサイズ */
+.small-text {
+    font-size: 0.9rem;
+    /* 例: 14.4px 相当。もっと小さくしたいなら 0.8rem などに */
+    line-height: 1.6;
+    /* 行間も少し広めにすると読みやすくなります */
+}
+
+
+/* 背景色の指定 */
+.right-scroll {
+    background-color: #800000;
+}
+
+#hero {
+    background-color: #8b0000;
+    /* ダークレッド */
+}
+
+#school {
+    background-color: #2c2c2c;
+}
+
+#coach {
+    background-color: #550000;
+}
+
+#schedule {
+    background-color: #a87e30;
+}
+
+#entry {
+    background-color: #2b2828;
+}
+
+#access {
+    background-color: #121212;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+
+
+/* 全体の文字色を白にする */
+body {
+    color: #FFF0C1;
+}
+
+/* 特定セクションだけ文字色を変更する */
+#hero {
+    color: #ffd700;
+    /* ゴールド */
+}
+
+#school {
+    color: #FFF0C1;
+}
+
+#coach {
+    color: #FFF0C1;
+}
+
+h2 {
+    color: #FFD700;
+    /* ゴールド */
+}
+
+h5 {
+    color: #B8FFFA;
+    /* ディープスカイブルー */
+}
+
+/* ナビバー設定 */
+/* ナビバーの高さ分スペース確保 */
+.container-pc {
+    padding-top: 10px;
+    /* ナビバーの高さに応じて調整 */
+    background-color: #8b0000;
+}
+
+.navbar {
+    background-color: transparent !important;
+    /* 背景透明に */
+    box-shadow: none;
+    /* 影も削除 */
+
+}
+
+/* ナビバーを画面上部に固定 */
+header {
+    z-index: 1000;
+}
+
+/* ナビバーロゴ画像 */
+.logo-img {
+    height: 200px;
+    /* 高さだけ指定すれば幅は自動調整される */
+    width: auto;
+}
+
+/* ハンバーガーメニュー */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 191, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ホバーのとき色変更 */
+.navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,215,0,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+.navbar-nav .nav-link {
+    color: #FFD700 !important;
+    /* ゴールド */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #FF6347 !important;
+    /* Tomato 色 */
+}
+
+
+/* --------フッター-------- */
+
+.footer {
+    margin-left: 50%;
+    /* 左の固定領域分を避ける */
+    width: 50%;
+    /* 右側の幅に合わせる */
+    background: #121212;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    font-size: 15px;
+    color: #FFF0C1;
+    box-sizing: border-box;
+}
+
+@media (max-width: 767.98px) {
+    .footer {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+/* -------もだーる--------- */
+.modal-content {
+  background-color: #222; /* ダークグレー背景 */
+  color: #fff;            /* 白い文字 */
+}
+.modal-header {
+  background-color: #000; /* 黒いヘッダー */
+  color: #fff;
+  border-bottom: none;
+}
+.modal-footer .btn-primary {
+  background-color: #ff4500; /* オレンジ系の色 */
+  border: none;
+}
+.modal-body input,
+.modal-body textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
